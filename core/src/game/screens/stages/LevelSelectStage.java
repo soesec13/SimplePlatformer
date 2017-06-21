@@ -53,7 +53,7 @@ public class LevelSelectStage extends Stage {
     public void setPositions()
     {
         levelTable.setPosition(
-                Gdx.graphics.getWidth()/2-levelTable.getWidth()/2,
+                Gdx.graphics.getWidth() /2-levelTable.getWidth() /2,
                 Gdx.graphics.getHeight()/2-levelTable.getHeight()/2);
     }
 
