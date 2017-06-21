@@ -64,7 +64,7 @@ public abstract class MapEntity {
 
     public void draw (SpriteBatch batch)
     {
-        if(invisible)
+        if(invisible || frames[currentFrame] == null)
             return;
         frames[currentFrame].setPosition(bounds.x,bounds.y);
         frames[currentFrame].draw(batch,alpha);
