@@ -19,7 +19,7 @@ public class Player extends MapEntity {
     public static final int RIGHT=1;
     public static final int UP=2;
 
-    private final Map<Integer,Boolean> mstate = new HashMap<Integer, Boolean>();
+    private final Map<Integer,Boolean> movementState = new HashMap<Integer, Boolean>();
 
     public Player(WorldController controller) {
         super(controller);
@@ -28,9 +28,9 @@ public class Player extends MapEntity {
         maxSpeed = 18;
         isOnGround = false;
         invisible = false;
-        mstate.put(LEFT,false);
-        mstate.put(RIGHT,false);
-        mstate.put(UP,false);
+        movementState.put(LEFT,false);
+        movementState.put(RIGHT,false);
+        movementState.put(UP,false);
     }
 
     @Override
@@ -57,17 +57,17 @@ public class Player extends MapEntity {
 
     public void processInput()
     {
-        if(mstate.get(RIGHT)) {
+        if(movementState.get(RIGHT)) {
             direction = DIR_EAST;
         }
-        else if(mstate.get(LEFT)) {
+        else if(movementState.get(LEFT)) {
             direction = DIR_WEST;
         }
 
         else{
             direction = DIR_NONE;
         }
-        if(mstate.get(UP))
+        if(movementState.get(UP))
         {
             if(state != STATE_JUMPING && state != STATE_FALLING)
             {
@@ -80,11 +80,11 @@ public class Player extends MapEntity {
 
     public void setMovementState(int direction,boolean active)
     {
-        mstate.put(direction,active);
+        movementState.put(direction,active);
     }
 
     public Integer[] getMovementStates()
     {
-        return mstate.keySet().toArray(new Integer[0]);
+        return movementState.keySet().toArray(new Integer[0]);
     }
 }
