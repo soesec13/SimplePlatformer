@@ -1,0 +1,33 @@
+objects.png
+size: 276, 72
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+goal
+  rotate: false
+  xy: 4, 4
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+playerfront
+  rotate: false
+  xy: 72, 4
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+playerleft
+  rotate: false
+  xy: 140, 4
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+playerright
+  rotate: false
+  xy: 208, 4
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
