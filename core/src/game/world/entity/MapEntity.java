@@ -87,7 +87,7 @@ public abstract class MapEntity {
         if(direction == DIR_EAST)
             velocity.x = +horizontalSpeed;
             //System.out.println("Added gravity");
-            velocity.y += GRAVITY;
+        velocity.y += GRAVITY;
 
         if(velocity.len() > maxSpeed) {
             velocity = velocity.nor().scl(maxSpeed);
