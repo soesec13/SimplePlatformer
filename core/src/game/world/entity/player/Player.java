@@ -19,11 +19,14 @@ public class Player extends MapEntity {
     public static final int RIGHT=1;
     public static final int UP=2;
 
+    private static final float WIDTH = 0.8f, HEIGHT = 0.8f;
+    private static final float JUMP_HEIGHT = 14.25f;
+
     private final Map<Integer,Boolean> movementState = new HashMap<Integer, Boolean>();
 
     public Player(WorldController controller) {
         super(controller);
-        bounds = new Rectangle(0,0,0.8f,0.8f);
+        bounds = new Rectangle(0,0,WIDTH,HEIGHT);
         horizontalSpeed = 8;
         maxSpeed = 18;
         isOnGround = false;
@@ -37,7 +40,7 @@ public class Player extends MapEntity {
     protected Sprite[] loadFrames() {
         Sprite[] frames = new Sprite[1];
         frames[0] = Resources.WORLD.player;
-        frames[0].setSize(0.8f,0.8f);
+        frames[0].setSize(WIDTH,HEIGHT);
         return frames;
     }
 
@@ -71,7 +74,7 @@ public class Player extends MapEntity {
         {
             if(state != STATE_JUMPING && state != STATE_FALLING)
             {
-                velocity.y = 14.25f;
+                velocity.y = JUMP_HEIGHT;
                 state = STATE_JUMPING;
                 isOnGround = false;
             }
