@@ -85,9 +85,9 @@ public class Player extends MapEntity implements InputProcessor{
     public boolean keyDown(int keycode) {
         switch (keycode)
         {
-            case Input.Keys.LEFT: mstate.put(LEFT,true); break;
-            case Input.Keys.RIGHT:mstate.put(RIGHT,true); break;
-            case Input.Keys.SPACE: mstate.put(UP,true); break;
+            case Input.Keys.LEFT:  case Input.Keys.A:   mstate.put(LEFT,true);     break;
+            case Input.Keys.RIGHT: case Input.Keys.D:   mstate.put(RIGHT,true);    break;
+            case Input.Keys.SPACE: case Input.Keys.W:   mstate.put(UP,true);       break;
         }
         return true;
     }
@@ -96,9 +96,9 @@ public class Player extends MapEntity implements InputProcessor{
     public boolean keyUp(int keycode) {
         switch (keycode)
         {
-            case Input.Keys.LEFT: mstate.put(LEFT,false); break;
-            case Input.Keys.RIGHT:mstate.put(RIGHT,false); break;
-            case Input.Keys.SPACE: mstate.put(UP,false); break;
+            case Input.Keys.LEFT:  case Input.Keys.A:   mstate.put(LEFT,false);     break;
+            case Input.Keys.RIGHT: case Input.Keys.D:   mstate.put(RIGHT,false);    break;
+            case Input.Keys.SPACE: case Input.Keys.W:   mstate.put(UP,false);       break;
         }
         return true;
     }
