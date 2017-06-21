@@ -83,8 +83,7 @@ public class CollisionHandler {
             {
                 if(detection.overlaps(tile))
                 {
-                    float velocityAdjustment = (velocity.y > 0? 0.5f:0);
-                    entity.collideHorizontal((int) (bounds.y+velocityAdjustment));//+1-bounds.height
+                    entity.collideHorizontal(Math.round(bounds.y));
                     break;
                 }
             }
@@ -100,8 +99,7 @@ public class CollisionHandler {
             {
                 if(detection.overlaps(tile))
                 {
-                    float velocityAdjustement = (velocity.x > 0? 0.5f:0);
-                    entity.collideVertical((int) (bounds.x+velocityAdjustement));
+                    entity.collideVertical(Math.round(bounds.x));
                     break;
                 }
             }
