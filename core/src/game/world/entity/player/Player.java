@@ -110,11 +110,11 @@ public class Player extends MapEntity implements InputProcessor{
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-        float widht = Gdx.graphics.getWidth();
+        float width = Gdx.graphics.getWidth();
         float height = Gdx.graphics.getHeight();
-        if(screenX < widht/2 && screenY > height/2)
+        if(screenX < width/2 && screenY > height/2)
             mstate.put(LEFT,true);
-        if(screenX > widht/2 && screenY > height/2)
+        if(screenX > width/2 && screenY > height/2)
             mstate.put(RIGHT,true);
         if(screenY < height/2)
             mstate.put(UP,true);
