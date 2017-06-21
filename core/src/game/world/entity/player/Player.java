@@ -37,9 +37,10 @@ public class Player extends MapEntity {
 
     @Override
     protected Sprite[] loadFrames() {
-        Sprite[] frames = new Sprite[1];
-        frames[0] = Resources.WORLD.player;
-        frames[0].setSize(WIDTH,HEIGHT);
+        frames = Resources.WORLD.player;
+        for(Sprite frame:frames) {
+            frame.setSize(WIDTH, HEIGHT);
+        }
         return frames;
     }
 
@@ -50,7 +51,12 @@ public class Player extends MapEntity {
 
     @Override
     public void updateFrame() {
-
+        if(direction == DIR_EAST)
+            currentFrame = 2;
+        else if(direction == DIR_NONE)
+            currentFrame = 0;
+        else if (direction == DIR_WEST)
+            currentFrame = 1;
     }
 
     public void processInput()

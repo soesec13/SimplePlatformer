@@ -32,7 +32,7 @@ public class LevelSelectStage extends Stage {
                 load(event.getListenerActor().getName());
             }
         };
-        Skin skin = new Skin(Gdx.files.internal("uiskin.json"));
+        Skin skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
         levelTable = new Table(skin);
 
 

@@ -4,9 +4,9 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import game.game.MyGame;
+import game.resources.Resources;
 import game.screens.stages.LevelSelectStage;
 import game.world.WorldController;
-import game.world.WorldMap;
 
 /**
  * Created by Sebi on 21/06/2017.
@@ -23,7 +23,7 @@ public class LevelScreen implements Screen {
 
     @Override
     public void show() {
-        levelSelectStage = new LevelSelectStage(WorldMap.levels.values(), controller, game);
+        levelSelectStage = new LevelSelectStage(Resources.WORLD.levels.values(), controller, game);
         Gdx.input.setInputProcessor(levelSelectStage);
     }
 

@@ -12,7 +12,6 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Rectangle;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -20,12 +19,7 @@ import java.util.List;
  */
 public class WorldMap {
 
-    public static HashMap<Integer,String> levels;
-    static{
-        levels = new HashMap<Integer, String>();
-        levels.put(1,"test.tmx");
-        levels.put(2,"test2.tmx");
-    }
+
     private TiledMap map;
     private OrthogonalTiledMapRenderer renderer;
     private static final float TILE_SIZE = 32;
