@@ -5,6 +5,7 @@ import com.badlogic.gdx.math.Rectangle;
 import game.resources.Resources;
 import game.world.WorldController;
 import game.world.entity.MapEntity;
+import game.world.entity.player.Player;
 
 /**
  * Created by Sebi on 19/06/2017.
@@ -27,6 +28,11 @@ public class Goal extends MapEntity {
 
     @Override
     public void collideWith(MapEntity entity) {
+        if(entity instanceof Player)
+        {
+            System.out.println("Collided with GOAL");
+            controller.setState(WorldController.GAME_OVER);
+        }
     }
 
     @Override

@@ -5,7 +5,6 @@ import com.badlogic.gdx.math.Rectangle;
 import game.resources.Resources;
 import game.world.WorldController;
 import game.world.entity.MapEntity;
-import game.world.entity.functional.Goal;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -46,11 +45,7 @@ public class Player extends MapEntity {
 
     @Override
     public void collideWith(MapEntity entity) {
-        if(entity instanceof Goal)
-        {
-            System.out.println("Collided with GOAL");
-            controller.setState(WorldController.GAME_OVER);
-        }
+
     }
 
     @Override
