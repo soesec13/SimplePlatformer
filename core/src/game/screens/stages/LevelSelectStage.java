@@ -38,7 +38,7 @@ public class LevelSelectStage extends Stage {
 
         for(String name:levelNames)
         {
-            TextButton b = new TextButton(name,skin);
+            TextButton b = new TextButton(extractMapName(name),skin);
             b.setName(name);
             b.addListener(listener);
             levelTable.add(b).pad(10).fillY().align(Align.top);
@@ -61,5 +61,13 @@ public class LevelSelectStage extends Stage {
     {
         this.controller.loadMap(name);
         this.game.transitTo(game.gameScreen);
+    }
+
+    private static String extractMapName(String path)
+    {
+        String[] parts = path.split("/");
+        String fileName = parts[parts.length-1];
+        String withoutFileExtension = fileName.split("\\.")[0];
+        return withoutFileExtension;
     }
 }
