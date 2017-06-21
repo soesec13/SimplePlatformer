@@ -1,11 +1,11 @@
 package game.world;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.math.Rectangle;
 import game.world.entity.EntityFactory;
 import game.world.entity.MapEntity;
+import game.world.entity.player.PlayerInputAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,10 +22,13 @@ public class WorldController {
     public static final int GAME_WON = 3;
 
     private WorldMap map;
-    private List<MapEntity> mapObjects;
-    private WorldCamera camera;
     private game.world.entity.player.Player player;
-    private CollisionHandler collisionHandler;
+
+    private final List<MapEntity> mapObjects;
+    private final WorldCamera camera;
+    private final CollisionHandler collisionHandler;
+    private final PlayerInputAdapter inputAdapter;
+
     private int state;
 
     public WorldController()
@@ -33,6 +36,7 @@ public class WorldController {
         camera = new WorldCamera();
         mapObjects = new ArrayList<MapEntity>();
         collisionHandler = new CollisionHandler();
+        inputAdapter = new PlayerInputAdapter();
     }
 
     public void loadMap(String name)
@@ -117,7 +121,8 @@ public class WorldController {
     public void setPlayer(MapEntity player) {
         this.player = (game.world.entity.player.Player) player;
         getCamera().setTarget(player);
-        Gdx.input.setInputProcessor((InputProcessor) player);
+        inputAdapter.setPlayer(this.player);
+        Gdx.input.setInputProcessor(inputAdapter);
     }
 
     public void setState(int state) {
