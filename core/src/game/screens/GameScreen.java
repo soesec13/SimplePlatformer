@@ -2,6 +2,7 @@ package game.screens;
 
 import com.badlogic.gdx.Screen;
 import game.game.MyGame;
+import game.screens.stages.GameStage;
 import game.world.WorldController;
 import game.world.WorldRenderer;
 import game.world.entity.MapEntity;
@@ -12,8 +13,9 @@ import game.world.entity.MapEntity;
 public class GameScreen implements Screen {
     private WorldController controller;
     private WorldRenderer worldRenderer;
+    private GameStage gameStage;
 
-    private MyGame game;
+    private final MyGame game;
 
     public GameScreen(WorldController controller, WorldRenderer worldRenderer, MyGame game) {
         this.controller = controller;
@@ -37,6 +39,7 @@ public class GameScreen implements Screen {
         controller.loadEntities();
         controller.setState(WorldController.GAME_RUNNING);
         controller.movePlayerToSpawn();
+        gameStage = new GameStage(game);
     }
 
     @Override
@@ -48,6 +51,8 @@ public class GameScreen implements Screen {
         }
         controller.update();
         worldRenderer.render(game.batch);
+        gameStage.act();
+        gameStage.draw();
         if(controller.getState() == WorldController.GAME_OVER)
         {
             game.transitTo(game.levelScreen);
@@ -79,5 +84,6 @@ public class GameScreen implements Screen {
         System.out.println("Dispose");
         controller.dispose();
         worldRenderer.dispose();
+        gameStage.dispose();
     }
 }

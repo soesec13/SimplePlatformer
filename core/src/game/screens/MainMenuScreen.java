@@ -3,6 +3,7 @@ package game.screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import game.Config;
@@ -24,7 +25,7 @@ public class MainMenuScreen implements Screen {
 
     @Override
     public void show() {
-
+        game.font.setColor(Color.FOREST);
     }
 
     @Override
@@ -35,7 +36,7 @@ public class MainMenuScreen implements Screen {
         camera.update();
         game.batch.begin();
         game.batch.setProjectionMatrix(camera.combined);
-        game.font.draw(game.batch,"Hello Menu",100,100);
+        game.font.draw(game.batch,"Hello Menu",Gdx.graphics.getWidth()/2,Gdx.graphics.getHeight()/2);
         game.batch.end();
         if(Gdx.input.isKeyPressed(Input.Keys.ENTER) || Gdx.input.isTouched())
         {

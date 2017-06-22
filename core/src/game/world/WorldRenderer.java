@@ -51,6 +51,5 @@ public class WorldRenderer {
     }
 
     public void dispose() {
-
     }
 }
