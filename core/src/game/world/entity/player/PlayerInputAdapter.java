@@ -21,10 +21,10 @@ public class PlayerInputAdapter implements InputProcessor {
     public boolean keyDown(int keycode) {
         switch (keycode)
         {
-            case Input.Keys.LEFT:  case Input.Keys.A: player.setMovementState(Player.LEFT,true);     break;
-            case Input.Keys.RIGHT: case Input.Keys.D: player.setMovementState(Player.RIGHT,true);    break;
+            case Input.Keys.LEFT:  case Input.Keys.A: player.setMovementState(Player.LEFT,  true);  break;
+            case Input.Keys.RIGHT: case Input.Keys.D: player.setMovementState(Player.RIGHT, true);  break;
             case Input.Keys.SPACE: case Input.Keys.W: case Input.Keys.UP:
-                                                      player.setMovementState(Player.UP,true); break;
+                                                      player.setMovementState(Player.UP,    true);  break;
         }
         return true;
     }
@@ -33,10 +33,10 @@ public class PlayerInputAdapter implements InputProcessor {
     public boolean keyUp(int keycode) {
         switch (keycode)
         {
-            case Input.Keys.LEFT:  case Input.Keys.A: player.setMovementState(Player.LEFT,false);     break;
-            case Input.Keys.RIGHT: case Input.Keys.D: player.setMovementState(Player.RIGHT,false);    break;
+            case Input.Keys.LEFT:  case Input.Keys.A: player.setMovementState(Player.LEFT,  false); break;
+            case Input.Keys.RIGHT: case Input.Keys.D: player.setMovementState(Player.RIGHT, false); break;
             case Input.Keys.SPACE: case Input.Keys.W: case Input.Keys.UP:
-                                                      player.setMovementState(Player.UP,false);       break;
+                                                      player.setMovementState(Player.UP,    false); break;
         }
         return true;
     }
