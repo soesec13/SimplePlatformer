@@ -72,7 +72,6 @@ public class WorldController {
         updateCamera();
         updatePlayer();
         updateMapObjects();
-
     }
 
     public void movePlayerToSpawn()
@@ -83,6 +82,7 @@ public class WorldController {
     }
 
     private void updatePlayer() {
+        //Only Access Player Specific Properties
         player.processInput();
     }
 
