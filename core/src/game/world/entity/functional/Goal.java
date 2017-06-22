@@ -16,14 +16,20 @@ public class Goal extends MapEntity {
         super(controller);
         this.bounds = bounds;
         this.affectedByGravity = false;
+        currentFrame = 0;
+        resizeFrames();
     }
 
     @Override
     protected Sprite[] loadFrames() {
         Sprite[] frames = new Sprite[1];
         frames[0] = Resources.WORLD.goal;
-        frames[0].setSize(bounds.width,bounds.height);
         return frames;
+    }
+
+    private void resizeFrames()
+    {
+        frames[0].setSize(bounds.width,bounds.height);
     }
 
     @Override

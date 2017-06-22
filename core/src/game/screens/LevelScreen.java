@@ -23,7 +23,7 @@ public class LevelScreen implements Screen {
 
     @Override
     public void show() {
-        levelSelectStage = new LevelSelectStage(Resources.WORLD.levels.values(), controller, game);
+        levelSelectStage = new LevelSelectStage(Resources.WORLD.levels, controller, game);
         Gdx.input.setInputProcessor(levelSelectStage);
     }
 

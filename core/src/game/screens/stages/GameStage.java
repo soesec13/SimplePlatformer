@@ -17,6 +17,7 @@ public class GameStage extends Stage {
         this.game = game;
         Skin skin = new Skin(Gdx.files.internal("skin/uiskin.json"));
         clock = new Clock(skin);
+        clock.setPosition(0,Gdx.graphics.getHeight()-clock.getHeight());
         addActor(clock);
         clock.start();
     }

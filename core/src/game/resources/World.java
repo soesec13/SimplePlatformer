@@ -4,7 +4,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Sebi on 17/06/2017.
@@ -15,11 +16,12 @@ public class World {
 
     private TextureAtlas objectAtlas;
 
-    public static HashMap<Integer,String> levels;
+    public static List<String> levels;
     static{
-        levels = new HashMap<Integer, String>();
-        levels.put(1,"maps/test.tmx");
-        levels.put(2,"maps/test2.tmx");
+        levels = new ArrayList<String>();
+        levels.add("maps/test.tmx");
+        levels.add("maps/test2.tmx");
+        levels.add("maps/test3.tmx");
     }
 
     public World()

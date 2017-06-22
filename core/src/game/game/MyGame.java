@@ -37,11 +37,6 @@ public class MyGame extends Game {
 
 		this.setScreen(mainMenuScreen);
 	}
-
-	@Override
-	public void render () {
-		super.render();
-	}
 	
 	@Override
 	public void dispose () {
@@ -53,4 +48,6 @@ public class MyGame extends Game {
     	getScreen().dispose();
         this.setScreen(screen);
     }
+
+
 }
