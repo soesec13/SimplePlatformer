@@ -12,6 +12,7 @@ public class DesktopLauncher {
 
 		config.width = Config.get().WIDTH;
 		config.height = Config.get().HEIGHT;
+		config.title = "Simple Platformer";
 		new LwjglApplication(new MyGame(), config);
 	}
 }
