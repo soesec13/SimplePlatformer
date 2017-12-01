@@ -16,13 +16,14 @@ public class EntityFactory {
     {
         this.controller = controller;
     }
+
     public MapEntity createFromType(String type, Rectangle bounds)
     {
         if(type.equals("spikes"))
             return new Spikes(controller,bounds);
         if(type.equals("goal"))
             return new Goal  (controller,bounds);
-         return null;
+         return new UnkownMapEntity(controller);
 }
 
     public MapEntity createFromType(MapObject obj) {
