@@ -1,5 +1,6 @@
 apply plugin: "java"
 sourceCompatibility = 1.8
+targetCompatibility = 1.8
 sourceSets.main.java.srcDirs = ["src/"]
 project.ext.mainClassName = "game.game.desktop.DesktopLauncher"
 project.ext.assetsDir = new File("../android/assets");
