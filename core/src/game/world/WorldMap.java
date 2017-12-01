@@ -45,7 +45,7 @@ public class WorldMap {
     @Deprecated
     public List<Rectangle> getBoundsByType(String type)
     {
-        final List<Rectangle> bounds = new ArrayList<Rectangle>();
+        final List<Rectangle> bounds = new ArrayList<>();
         MapObjects objects = getObjects();
         for(MapObject oj:objects)
         {
