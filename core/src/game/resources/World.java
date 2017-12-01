@@ -18,10 +18,11 @@ public class World {
 
     public static List<String> levels;
     static{
-        levels = new ArrayList<String>();
+        levels = new ArrayList<>();
         levels.add("maps/test.tmx");
         levels.add("maps/test2.tmx");
         levels.add("maps/test3.tmx");
+        levels.add("maps/fight.tmx");
     }
 
     public World()
