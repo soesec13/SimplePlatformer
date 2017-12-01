@@ -2,12 +2,12 @@ package game.world.entity.player;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.InputAdapter;
 
 /**
  * Created by Sebi on 21/06/2017.
  */
-public class PlayerInputAdapter implements InputProcessor {
+public class PlayerInputAdapter extends InputAdapter {
     private Player player;
 
     public PlayerInputAdapter() {
@@ -42,11 +42,6 @@ public class PlayerInputAdapter implements InputProcessor {
     }
 
     @Override
-    public boolean keyTyped(char character) {
-        return false;
-    }
-
-    @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
         float width = Gdx.graphics.getWidth();
         float height = Gdx.graphics.getHeight();
@@ -65,20 +60,5 @@ public class PlayerInputAdapter implements InputProcessor {
             player.setMovementState(state,false);
         }
         return true;
-    }
-
-    @Override
-    public boolean touchDragged(int screenX, int screenY, int pointer) {
-        return false;
-    }
-
-    @Override
-    public boolean mouseMoved(int screenX, int screenY) {
-        return false;
-    }
-
-    @Override
-    public boolean scrolled(int amount) {
-        return false;
     }
 }
