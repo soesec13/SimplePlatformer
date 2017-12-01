@@ -23,6 +23,7 @@ public abstract class MapEntity {
 
     //Body
     protected Rectangle bounds;
+    protected boolean collidable;
 
     //Movement
     protected float horizontalSpeed;
@@ -58,6 +59,7 @@ public abstract class MapEntity {
         bounds = new Rectangle(-1,-1,1,1);
         affectedByGravity = true;
         frames = loadFrames();
+        collidable = true;
     }
 
     protected abstract Sprite[] loadFrames();
@@ -109,9 +111,9 @@ public abstract class MapEntity {
             velocity.y = 0;
             isOnGround = true;
         }
-        else if(bounds.y + bounds.height > game.Config.get().HEIGHT)
+        else if(bounds.y + bounds.height > controller.getMap().getHeight())
         {
-            bounds.y = game.Config.get().HEIGHT - bounds.height;
+            bounds.y = controller.getMap().getHeight() - bounds.height;
             velocity.y = 0;
         }
         if(bounds.x < 0)
@@ -120,9 +122,9 @@ public abstract class MapEntity {
             velocity.x = 0;
             direction = DIR_NONE;
         }
-        else if(bounds.x + bounds.width > game.Config.get().WIDTH)
+        else if(bounds.x + bounds.width > controller.getMap().getWidth())
         {
-            bounds.x = game.Config.get().WIDTH - bounds.width;
+            bounds.x = controller.getMap().getWidth() - bounds.width;
             velocity.x = 0;
             direction = DIR_NONE;
         }
@@ -205,5 +207,9 @@ public abstract class MapEntity {
 
     public Rectangle getBounds() {
         return bounds;
+    }
+
+    public boolean isCollidable() {
+        return collidable;
     }
 }

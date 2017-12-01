@@ -34,7 +34,7 @@ public class WorldController {
     public WorldController()
     {
         camera = new WorldCamera();
-        mapObjects = new ArrayList<MapEntity>();
+        mapObjects = new ArrayList<>();
         collisionHandler = new CollisionHandler();
         inputAdapter = new PlayerInputAdapter();
     }
@@ -62,7 +62,10 @@ public class WorldController {
                 continue;
             MapEntity e = factory.createFromType(obj);
             mapObjects.add(e);
-            collisionHandler.register(e);
+            if(e.isCollidable())
+            {
+                collisionHandler.register(e);
+            }
         }
     }
 
