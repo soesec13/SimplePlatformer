@@ -3,6 +3,7 @@ package game.world.entity.player;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
 import game.resources.Resources;
+import game.util.CoordinateTranslator;
 import game.world.WorldController;
 import game.world.entity.MapEntity;
 
@@ -22,6 +23,9 @@ public class Player extends MapEntity {
     private static final float JUMP_HEIGHT = 14.25f;
 
     private final Map<Integer,Boolean> movementState = new HashMap<Integer, Boolean>();
+
+    private boolean firing;
+    private CoordinateTranslator.Coordinate firingLocation;
 
     public Player(WorldController controller) {
         super(controller);
@@ -90,5 +94,13 @@ public class Player extends MapEntity {
     public Integer[] getMovementStates()
     {
         return movementState.keySet().toArray(new Integer[0]);
+    }
+
+    public void setFiring(boolean firing) {
+        this.firing = firing;
+    }
+
+    public void setFiringLocation(CoordinateTranslator.Coordinate firingLocation) {
+        this.firingLocation = firingLocation;
     }
 }

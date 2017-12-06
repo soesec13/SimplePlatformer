@@ -37,7 +37,7 @@ public class Goal extends MapEntity {
         if(entity instanceof Player)
         {
             System.out.println("Collided with GOAL");
-            controller.setState(WorldController.GAME_OVER);
+            controller.setState(WorldController.GAME_WON);
         }
     }
 

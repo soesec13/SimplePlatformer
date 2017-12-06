@@ -3,8 +3,11 @@ package game.world;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.math.Rectangle;
+import game.Config;
+import game.util.CoordinateTranslator;
 import game.world.entity.EntityFactory;
 import game.world.entity.MapEntity;
+import game.world.entity.player.ClickInputHandler;
 import game.world.entity.player.PlayerInputAdapter;
 
 import java.util.ArrayList;
@@ -49,6 +52,9 @@ public class WorldController {
         }
         collisionHandler.setMap(map);
         camera.setMapSize(map.getWidth(),map.getHeight());
+        CoordinateTranslator translator = new CoordinateTranslator(Config.get().WIDTH, Config.get().HEIGHT, camera.viewportWidth, camera.viewportHeight);
+        ClickInputHandler clickInputHandler = new ClickInputHandler(translator, camera);
+        inputAdapter.setClickInputHandler(clickInputHandler);
     }
 
     public void loadEntities()
@@ -114,7 +120,9 @@ public class WorldController {
 
     public void addEntity(MapEntity entity) {
         mapObjects.add(entity);
-        collisionHandler.register(entity);
+        if(entity.isCollidable()) {
+            collisionHandler.register(entity);
+        }
     }
 
     public WorldCamera getCamera() {

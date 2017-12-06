@@ -2,6 +2,7 @@ package game.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import game.Config;
@@ -33,9 +34,14 @@ public class EndScreen implements Screen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         camera.update();
 
+        Color prv = game.font.getColor();
+
         game.batch.begin();
-        game.font.draw(game.batch,"The End",Config.get().WIDTH/2-20,Config.get().HEIGHT/2-20);
+        game.font.setColor(1,1,0,1);
+        game.font.draw(game.batch,"The End",10,10);
         game.batch.end();
+
+        game.font.setColor(prv);
     }
 
     @Override
